@@ -1,7 +1,42 @@
 {
   "RSpec": {
     "coverage": {
+      "/Users/Simon/Projects/tech-tests/fakebook_app/spec/features/authentication_spec.rb": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        null,
+        null
+      ],
+      "/Users/Simon/Projects/tech-tests/fakebook_app/spec/unit/api_spec.rb": [
+        1,
+        1,
+        1,
+        null,
+        1,
+        1,
+        null,
+        1,
+        4,
+        null,
+        2,
+        null,
+        1,
+        1,
+        1,
+        1,
+        null,
+        null,
+        1,
+        1,
+        1,
+        null,
+        null,
+        null
+      ]
     },
-    "timestamp": 1508855682
+    "timestamp": 1508930770
   }
 }

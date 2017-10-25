@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Home</title>
+  </head>
+  <body>
+    <% if @token != nil %>
+    <p>Authentication successful</p>
+    <% else %>
+    <p>Authentication failed. Check your api key and try again.</p>
+    <% end %>
+  </body>
+</html>
