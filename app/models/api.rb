@@ -20,6 +20,14 @@ class Api
     response
   end
 
+  def list_recipients(token)
+    request_headers = recipient_header(token)
+      response = RestClient.get 'https://coolpay.herokuapp.com/api/recipients', request_headers
+    rescue RestClient::ExceptionWithResponse => exception
+      response = exception.response
+    response
+  end
+
   private
 
   def login_header

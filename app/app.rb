@@ -43,5 +43,14 @@ class App < Sinatra::Base
     redirect '/home'
   end
 
+  get '/recipients' do
+    @token = session[:token]
+    @api = Api.new
+    recipients_resp = @api.list_recipients(@token)
+    json = JSON.parse(recipients_resp.body)
+    @recipients = json['recipients']
+    erb :'/recipients/index'
+  end
+
   run! if app_file == $0
 end

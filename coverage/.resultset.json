@@ -10,7 +10,17 @@
         null,
         null
       ],
-      "/Users/Simon/Projects/tech-tests/fakebook_app/spec/features/authentication_spec.rb": [
+      "/Users/Simon/Projects/tech-tests/fakebook_app/spec/features/list_recipients_spec.rb": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        null,
+        null
+      ],
+      "/Users/Simon/Projects/tech-tests/fakebook_app/spec/features/login_spec.rb": [
         1,
         1,
         1,
@@ -45,6 +55,6 @@
         null
       ]
     },
-    "timestamp": 1508949934
+    "timestamp": 1508960254
   }
 }
