@@ -10,14 +10,14 @@ describe Api do
 
   it { is_expected.to be }
 
-  describe '#authenticate' do
+  describe '#login' do
     it 'authenticates correct username and key' do
-      response = api.authenticate(API_USER, API_KEY)
+      response = api.login(API_USER, API_KEY)
       expect(response).to include 'token'
     end
 
     it 'responds with error for incorrect username and key' do
-      response = api.authenticate("Incorrect", "Incorrect")
+      response = api.login("Incorrect", "Incorrect")
       expect(response).to include 'Internal server error'
     end
   end

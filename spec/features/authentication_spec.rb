@@ -1,7 +1,6 @@
-feature 'Authentication' do
-  scenario 'authenticates successfully' do
-    visit '/'
-    click_button 'Authenticate'
-    expect(page).to have_content 'Authentication successful'
+feature 'Login' do
+  scenario 'logs in successfully' do
+    login
+    expect(page).to have_content 'Login successful'
   end
 end

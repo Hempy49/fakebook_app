@@ -23,6 +23,7 @@ require 'capybara'
 require 'capybara/rspec'
 require './app/models/api.rb'
 require 'rspec'
+require 'web_helpers.rb'
 
 Capybara.app = App
 

@@ -6,9 +6,16 @@
   </head>
   <body>
     <% if @token != nil %>
-    <p>Authentication successful</p>
+    <p>Login successful</p>
+    <form action="/recipients/new" method="get">
+      <input type="submit" value="Add recipient">
+    </form>
     <% else %>
-    <p>Authentication failed. Check your api key and try again.</p>
+    <p>Login failed. Check your api key and try again.</p>
+    <% end %>
+
+    <% if @recipient != nil %>
+    <p><%= @recipient %> has been added successfully</p>
     <% end %>
   </body>
 </html>
