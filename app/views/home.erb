@@ -5,19 +5,5 @@
     <title>Home</title>
   </head>
   <body>
-    <% if @token != nil %>
-    <form action="/recipients/new" method="get">
-      <input type="submit" value="Add recipient">
-    </form>
-    <form action="/recipients" method="get">
-      <input type="submit" value="View recipients">
-    </form>
-    <% else %>
-    <form action="/" method="get">
-      <input type="submit" value="Login">
-    </form>
-    <% end %>
-
-
   </body>
 </html>

@@ -1,26 +1,49 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8">
-    <title>Fakebook App</title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <link rel="stylesheet" type="text/css" href="<%= url('/style.css') %>" >
-    <link href="https://fonts.googleapis.com/css?family=Inconsolata" rel="stylesheet">
-  </head>
-  <body>
-    <div class="container-fluid text-center">
-        <% if flash[:notice] && !flash[:notice].empty? %>
-        <div class="alert alert-success" id="success">
-          <%= flash[:notice] %>
-        </div>
+<head>
+  <meta charset="utf-8">
+  <title>Fakebook App</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <link rel="stylesheet" type="text/css" href="<%= url('/style.css') %>" >
+  <link href="https://fonts.googleapis.com/css?family=Inconsolata" rel="stylesheet">
+</head>
+<body>
+  <div class="container-fluid">
+  <nav class="navbar navbar-inverse">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <a class="navbar-brand" href="/">Fakebook App</a>
+      </div>
+
+      <ul class="nav navbar-nav navbar-right">
+        <% if @token != nil %>
+
+        <li><a href="/recipients/new">Add recipient</a></li>
+        <li><a href="/recipients">View recipients</a></li>
+        <% else %>
+        <li><a href="/">Login</a></li>
+        <% end %>
+      </ul>
+    </div>
+  </nav>
+
+
+  <div class="container-fluid text-center">
+    <% if flash[:notice] && !flash[:notice].empty? %>
+    <div class="alert alert-success" id="success">
+      <%= flash[:notice] %>
+    </div>
     <% end %>
     <div class="container-fluid text-center">
-        <% if flash[:errors] && !flash[:errors].empty? %>
-        <div class="alert alert-danger" id="error">
-          <%= flash[:errors] %>
-        </div>
-    <% end %>
-<%= yield %>
-  </body>
-</html>
+      <% if flash[:errors] && !flash[:errors].empty? %>
+      <div class="alert alert-danger" id="error">
+        <%= flash[:errors] %>
+      </div>
+      <% end %>
+      <footer id="index-footer" class="navbar navbar-default navbar-fixed-bottom">
+        <p class="text-center">Fakebook App | Made by <a href="https://github.com/Hempy49">Simon</a></p>
+      </footer>
+      <%= yield %>
+    </body>
+    </html>

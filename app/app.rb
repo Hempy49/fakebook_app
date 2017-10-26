@@ -39,6 +39,7 @@ class App < Sinatra::Base
   end
 
   get '/recipients/new' do
+    @token = session[:token]
     erb :'/recipients/new'
   end
 
@@ -67,6 +68,7 @@ class App < Sinatra::Base
   end
 
   get '/payments' do
+    @token = session[:token]
     @payment = session[:payment]
     erb :'/payments/index'
   end
@@ -82,6 +84,7 @@ class App < Sinatra::Base
   end
 
   get '/payments/new' do
+    @token = session[:token]
     session[:id] = params[:id]
     erb :'/payments/new'
   end
