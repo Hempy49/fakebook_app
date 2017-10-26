@@ -26,7 +26,9 @@ open `.env` and write:
 API_USER='replace-with-your-username'
 API_KEY='replace-with-your-key'
 ```   
-Launch the app with `rackup`  
+Launch the app with `rackup`
+Visit `http://localhost:9292/`
+
 Run the tests with `rspec -fd`
 
 ## Next steps
