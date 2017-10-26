@@ -5,6 +5,7 @@ gem 'sinatra'
 gem 'rest-client'
 gem 'json'
 gem 'dotenv'
+gem 'webmock'
 
 group :test do
   gem 'rspec'

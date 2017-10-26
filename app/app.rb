@@ -52,5 +52,25 @@ class App < Sinatra::Base
     erb :'/recipients/index'
   end
 
+  get '/payments' do
+   @payment = session[:payment]
+   erb :'/payments/index'
+ end
+
+  post '/payments' do
+    @recipient_id = session[:id]
+    @token = session[:token]
+    @api = Api.new
+    response = @api.send_payment(params[:amount], @recipient_id, @token)
+    json = JSON.parse(response.body)
+    session[:payment] = json['payment']['status']
+    redirect '/payments'
+  end
+
+ get '/payments/new' do
+   session[:id] = params[:id]
+   erb :'/payments/new'
+ end
+
   run! if app_file == $0
 end

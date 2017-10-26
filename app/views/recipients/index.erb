@@ -7,7 +7,10 @@
   <body>
     <ul>
     <% @recipients.each do |recipient| %>
+    <form action="/payments/new" method="get">
     <p><%= recipient['name'] %></p>
+    <input name="id" type="hidden" value="<%= recipient['id'] %>">
+    <input type="submit" value="Send payment">
      <% end %>
    </ul>
   </body>

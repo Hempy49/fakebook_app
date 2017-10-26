@@ -5,9 +5,9 @@
     <title></title>
   </head>
   <body>
-    Add a new recipient
-    <form action="/recipients" method="post">
-      <input type="text" name="name" required>
+    Send payment:
+    <form action="/payments" method="post">
+      <input type="number" name="amount" required>
       <input type="submit" value="Submit">
     </form>
   </body>
