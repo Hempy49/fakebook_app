@@ -10,8 +10,14 @@
     <form action="/recipients/new" method="get">
       <input type="submit" value="Add recipient">
     </form>
+    <form action="/recipients" method="get">
+      <input type="submit" value="View recipients">
+    </form>
     <% else %>
     <p>Login failed. Check your api key and try again.</p>
+    <form action="/" method="get">
+      <input type="submit" value="Login">
+    </form>
     <% end %>
 
     <% if @recipient != nil %>
