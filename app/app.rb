@@ -9,6 +9,7 @@ Dotenv.load
 
 class App < Sinatra::Base
   enable :sessions
+  set :session_secret, 'super secret'
   register Sinatra::Flash
 
   API_KEY = ENV['API_KEY']
