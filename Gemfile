@@ -6,6 +6,7 @@ gem 'rest-client'
 gem 'json'
 gem 'dotenv'
 gem 'webmock'
+gem 'sinatra-flash'
 
 group :test do
   gem 'rspec'

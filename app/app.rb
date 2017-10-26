@@ -4,10 +4,12 @@ require 'sinatra/base'
 require './app/models/api.rb'
 require 'dotenv'
 require 'json'
+require 'sinatra/flash'
 Dotenv.load
 
 class App < Sinatra::Base
   enable :sessions
+  register Sinatra::Flash
 
   API_KEY = ENV['API_KEY']
   API_USER = ENV['API_USER']
@@ -21,7 +23,13 @@ class App < Sinatra::Base
     response = @api.login(API_USER, API_KEY)
     json = JSON.parse(response.body)
     session[:token] = json['token']
-    redirect '/home'
+    if session[:token] != nil
+      flash[:notice] = 'Login successful'
+      redirect '/home'
+    else
+      flash[:error] = 'Login failed. Check your api key and try again'
+      redirect '/'
+    end
   end
 
   get '/home' do
@@ -40,7 +48,13 @@ class App < Sinatra::Base
     recipient_response = @api.add_recipient(params[:name], @token)
     json = JSON.parse(recipient_response.body)
     session[:recipient] = json['recipient']['name']
-    redirect '/recipients'
+    if session[:recipient] != nil
+      flash[:notice] = "#{session[:recipient]} has been added successfully"
+      redirect '/recipients'
+    else
+      flash[:error] = 'Error. Please try again'
+      redirect '/home'
+    end
   end
 
   get '/recipients' do
@@ -53,9 +67,9 @@ class App < Sinatra::Base
   end
 
   get '/payments' do
-   @payment = session[:payment]
-   erb :'/payments/index'
- end
+    @payment = session[:payment]
+    erb :'/payments/index'
+  end
 
   post '/payments' do
     @recipient_id = session[:id]
@@ -67,10 +81,10 @@ class App < Sinatra::Base
     redirect '/payments'
   end
 
- get '/payments/new' do
-   session[:id] = params[:id]
-   erb :'/payments/new'
- end
+  get '/payments/new' do
+    session[:id] = params[:id]
+    erb :'/payments/new'
+  end
 
   run! if app_file == $0
 end
