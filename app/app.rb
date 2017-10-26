@@ -40,7 +40,7 @@ class App < Sinatra::Base
     recipient_response = @api.add_recipient(params[:name], @token)
     json = JSON.parse(recipient_response.body)
     session[:recipient] = json['recipient']['name']
-    redirect '/home'
+    redirect '/recipients'
   end
 
   get '/recipients' do
